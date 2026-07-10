@@ -44,3 +44,7 @@
     width: min(100% - 40px, var(--container-width));
     margin-inline: auto;
   }
+  
+  main {
+    padding-top: 140px;
+  }
