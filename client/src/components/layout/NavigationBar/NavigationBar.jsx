@@ -1,7 +1,20 @@
-import { useEffect, useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, X, ArrowUpRight } from "lucide-react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import {
+  Link,
+  NavLink,
+  useLocation,
+} from "react-router-dom";
+
+import {
+  ArrowUpRight,
+  Menu,
+  X,
+} from "lucide-react";
+
+import {
+  AnimatePresence,
+  motion,
+} from "framer-motion";
 
 import "./NavigationBar.css";
 
@@ -32,6 +45,8 @@ const NavigationBar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const menuButtonRef = useRef(null);
+
   const location = useLocation();
 
   useEffect(() => {
@@ -39,10 +54,19 @@ const NavigationBar = () => {
       setScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    window.addEventListener(
+      "scroll",
+      handleScroll,
+      { passive: true }
+    );
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
     };
   }, []);
 
@@ -51,27 +75,70 @@ const NavigationBar = () => {
   }, [location.pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    if (!menuOpen) {
+      return;
+    }
+
+    const previousOverflow =
+      document.body.style.overflow;
+
+    document.body.style.overflow = "hidden";
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+
+        requestAnimationFrame(() => {
+          menuButtonRef.current?.focus();
+        });
+      }
+    };
+
+    document.addEventListener(
+      "keydown",
+      handleEscape
+    );
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow =
+        previousOverflow;
+
+      document.removeEventListener(
+        "keydown",
+        handleEscape
+      );
     };
   }, [menuOpen]);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <header
       className={`navigation-wrapper ${
-        scrolled ? "navigation-wrapper--scrolled" : ""
+        scrolled
+          ? "navigation-wrapper--scrolled"
+          : ""
       }`}
     >
-      <nav className="navigation-bar container">
+      <nav
+        className="navigation-bar container"
+        aria-label="Main navigation"
+      >
         <Link
           to="/"
           className="brand-identity"
-          aria-label="CrestRewards home"
+          aria-label="CrestRewards homepage"
+          onClick={closeMenu}
         >
-          <span className="brand-symbol" aria-hidden="true">
-            <span className="brand-symbol__core">C</span>
+          <span
+            className="brand-symbol"
+            aria-hidden="true"
+          >
+            <span className="brand-symbol__core">
+              C
+            </span>
           </span>
 
           <span className="brand-name">
@@ -87,7 +154,9 @@ const NavigationBar = () => {
                 to={item.path}
                 className={({ isActive }) =>
                   `navigation-link ${
-                    isActive ? "navigation-link--active" : ""
+                    isActive
+                      ? "navigation-link--active"
+                      : ""
                   }`
                 }
               >
@@ -96,38 +165,77 @@ const NavigationBar = () => {
             ))}
           </div>
 
-          <Link to="/contact" className="navigation-action">
+          <Link
+            to="/contact"
+            className="navigation-action"
+          >
             <span>Talk to us</span>
-            <ArrowUpRight size={17} strokeWidth={2} />
+
+            <ArrowUpRight
+              size={17}
+              strokeWidth={2}
+              aria-hidden="true"
+            />
           </Link>
         </div>
 
         <button
+          ref={menuButtonRef}
           className="mobile-menu-button"
           type="button"
-          onClick={() => setMenuOpen((currentState) => !currentState)}
-          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          onClick={() => {
+            setMenuOpen((current) => !current);
+          }}
+          aria-label={
+            menuOpen
+              ? "Close navigation menu"
+              : "Open navigation menu"
+          }
           aria-expanded={menuOpen}
+          aria-controls="mobile-navigation-menu"
         >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          {menuOpen ? (
+            <X
+              size={24}
+              aria-hidden="true"
+            />
+          ) : (
+            <Menu
+              size={24}
+              aria-hidden="true"
+            />
+          )}
         </button>
       </nav>
 
       <AnimatePresence>
         {menuOpen && (
-          <>
+          <div className="mobile-navigation-layer">
             <motion.button
               className="mobile-navigation-backdrop"
               type="button"
               aria-label="Close navigation menu"
-              onClick={() => setMenuOpen(false)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              onClick={closeMenu}
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
+              exit={{
+                opacity: 0,
+              }}
+              transition={{
+                duration: 0.2,
+              }}
             />
 
             <motion.div
+              id="mobile-navigation-menu"
               className="mobile-navigation-panel"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Mobile navigation"
               initial={{
                 opacity: 0,
                 y: -20,
@@ -145,51 +253,77 @@ const NavigationBar = () => {
               }}
               transition={{
                 duration: 0.25,
-                ease: "easeOut",
+                ease: [0.22, 1, 0.36, 1],
               }}
             >
               <div className="mobile-navigation-links">
-                {navigationLinks.map((item, index) => (
-                  <motion.div
-                    key={item.path}
-                    initial={{
-                      opacity: 0,
-                      x: -15,
-                    }}
-                    animate={{
-                      opacity: 1,
-                      x: 0,
-                    }}
-                    transition={{
-                      delay: index * 0.04,
-                    }}
-                  >
-                    <NavLink
-                      to={item.path}
-                      className={({ isActive }) =>
-                        `mobile-navigation-link ${
-                          isActive ? "mobile-navigation-link--active" : ""
-                        }`
-                      }
+                {navigationLinks.map(
+                  (item, index) => (
+                    <motion.div
+                      key={item.path}
+                      initial={{
+                        opacity: 0,
+                        x: -15,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        x: 0,
+                      }}
+                      transition={{
+                        delay: index * 0.04,
+                      }}
                     >
-                      <span>{item.label}</span>
-                      <ArrowUpRight size={18} />
-                    </NavLink>
-                  </motion.div>
-                ))}
+                      <NavLink
+                        to={item.path}
+                        onClick={closeMenu}
+                        className={({ isActive }) =>
+                          `mobile-navigation-link ${
+                            isActive
+                              ? "mobile-navigation-link--active"
+                              : ""
+                          }`
+                        }
+                      >
+                        <span>
+                          {item.label}
+                        </span>
+
+                        <ArrowUpRight
+                          size={18}
+                          aria-hidden="true"
+                        />
+                      </NavLink>
+                    </motion.div>
+                  )
+                )}
               </div>
 
-              <Link to="/contact" className="mobile-navigation-action">
+              <Link
+                to="/contact"
+                className="mobile-navigation-action"
+                onClick={closeMenu}
+              >
                 Start a conversation
-                <ArrowUpRight size={18} />
+
+                <ArrowUpRight
+                  size={18}
+                  aria-hidden="true"
+                />
               </Link>
 
               <div className="mobile-navigation-message">
-                <span className="availability-dot" />
-                Building the future of customer loyalty
+                <span
+                  className="availability-dot"
+                  aria-hidden="true"
+                />
+
+                <span>
+                  Building the future of customer
+                  loyalty
+                </span>
               </div>
             </motion.div>
-          </>
+          </div>
         )}
       </AnimatePresence>
     </header>

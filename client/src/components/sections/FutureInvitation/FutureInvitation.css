@@ -1,0 +1,413 @@
+.future-invitation {
+    position: relative;
+    padding: clamp(70px, 9vw, 130px) 0;
+    overflow: hidden;
+  }
+  
+  .future-invitation__card {
+    position: relative;
+    min-height: 620px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+    overflow: hidden;
+    padding: clamp(35px, 6vw, 85px);
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 34px;
+    background:
+      linear-gradient(
+        145deg,
+        rgba(35, 20, 70, 0.92),
+        rgba(14, 17, 45, 0.96)
+      );
+    box-shadow:
+      0 50px 130px rgba(0, 0, 0, 0.38),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    isolation: isolate;
+  }
+  
+  .future-invitation__background {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  .future-invitation__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+  }
+  
+  .future-invitation__orb--one {
+    width: 500px;
+    height: 500px;
+    left: -220px;
+    bottom: -280px;
+    background: rgba(124, 58, 237, 0.45);
+  }
+  
+  .future-invitation__orb--two {
+    width: 450px;
+    height: 450px;
+    right: -200px;
+    top: -200px;
+    background: rgba(37, 99, 235, 0.35);
+  }
+  
+  .future-invitation__mesh {
+    position: absolute;
+    inset: 0;
+  
+    background-image:
+      linear-gradient(
+        rgba(255, 255, 255, 0.025) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.025) 1px,
+        transparent 1px
+      );
+  
+    background-size: 45px 45px;
+  
+    mask-image:
+      linear-gradient(
+        90deg,
+        black,
+        transparent 75%
+      );
+  }
+  
+  .future-invitation__content {
+    position: relative;
+    z-index: 3;
+    max-width: 720px;
+  }
+  
+  .future-invitation__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 11px;
+    color: #d8b4fe;
+    font-size: 0.65rem;
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid rgba(216, 180, 254, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.055);
+  }
+  
+  .future-invitation h2 {
+    margin-top: 25px;
+    font-size: clamp(3rem, 6vw, 6.4rem);
+    line-height: 0.94;
+    letter-spacing: -0.065em;
+  }
+  
+  .future-invitation h2 span {
+    color: #b8a4e8;
+  }
+  
+  .future-invitation__content > p {
+    max-width: 650px;
+    margin-top: 25px;
+    color: rgba(255, 255, 255, 0.57);
+    font-size: clamp(0.96rem, 1.25vw, 1.08rem);
+    line-height: 1.75;
+  }
+  
+  .future-invitation__actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 11px;
+    margin-top: 32px;
+  }
+  
+  .future-invitation__actions a {
+    min-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 18px;
+    text-decoration: none;
+    font-size: 0.76rem;
+    font-weight: 650;
+    border-radius: 999px;
+    transition:
+      transform 0.3s ease,
+      background 0.3s ease,
+      border-color 0.3s ease;
+  }
+  
+  .future-invitation__primary {
+    color: #111118;
+    background: #ffffff;
+  }
+  
+  .future-invitation__primary:hover {
+    transform: translateY(-3px);
+  }
+  
+  .future-invitation__secondary {
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.06);
+  }
+  
+  .future-invitation__secondary:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Sphere */
+  
+  .future-invitation__visual {
+    position: relative;
+    min-height: 420px;
+  }
+  
+  .future-sphere {
+    position: absolute;
+    width: min(38vw, 450px);
+    aspect-ratio: 1;
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    transform: translate(-45%, -50%);
+  }
+  
+  .future-sphere::before {
+    content: "";
+    position: absolute;
+    inset: 15%;
+    border-radius: 50%;
+    background:
+      radial-gradient(
+        circle at 35% 30%,
+        rgba(255, 255, 255, 0.2),
+        rgba(139, 92, 246, 0.16) 35%,
+        rgba(37, 99, 235, 0.06) 65%,
+        transparent 75%
+      );
+    filter: blur(5px);
+  }
+  
+  .future-sphere__ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 50%;
+  }
+  
+  .future-sphere__ring--one {
+    width: 100%;
+    height: 45%;
+    transform:
+      translate(-50%, -50%)
+      rotate(20deg);
+    animation: futureRingOne 15s linear infinite;
+  }
+  
+  .future-sphere__ring--two {
+    width: 100%;
+    height: 45%;
+    transform:
+      translate(-50%, -50%)
+      rotate(80deg);
+    animation: futureRingTwo 18s linear infinite;
+  }
+  
+  .future-sphere__ring--three {
+    width: 72%;
+    height: 72%;
+    transform:
+      translate(-50%, -50%)
+      rotate(45deg);
+    border-style: dashed;
+    animation: futureRingThree 25s linear infinite;
+  }
+  
+  .future-sphere__core {
+    position: absolute;
+    z-index: 5;
+    width: 120px;
+    height: 120px;
+    left: 50%;
+    top: 50%;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 32px;
+    background:
+      linear-gradient(
+        145deg,
+        rgba(168, 85, 247, 0.7),
+        rgba(37, 99, 235, 0.7)
+      );
+    box-shadow:
+      0 30px 70px rgba(0, 0, 0, 0.25),
+      0 0 70px rgba(124, 58, 237, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform:
+      translate(-50%, -50%)
+      rotate(8deg);
+    backdrop-filter: blur(15px);
+  }
+  
+  .future-sphere__core span {
+    color: #ffffff;
+    font-size: 3rem;
+    font-weight: 800;
+  }
+  
+  .future-sphere__point {
+    position: absolute;
+    z-index: 6;
+    width: 12px;
+    height: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.65);
+    border-radius: 50%;
+    background: #8b5cf6;
+    box-shadow:
+      0 0 20px rgba(139, 92, 246, 0.9);
+  }
+  
+  .future-sphere__point--one {
+    left: 9%;
+    top: 38%;
+  }
+  
+  .future-sphere__point--two {
+    right: 7%;
+    top: 43%;
+  }
+  
+  .future-sphere__point--three {
+    left: 47%;
+    bottom: 6%;
+  }
+  
+  @keyframes futureRingOne {
+    from {
+      transform:
+        translate(-50%, -50%)
+        rotate(20deg);
+    }
+  
+    to {
+      transform:
+        translate(-50%, -50%)
+        rotate(380deg);
+    }
+  }
+  
+  @keyframes futureRingTwo {
+    from {
+      transform:
+        translate(-50%, -50%)
+        rotate(80deg);
+    }
+  
+    to {
+      transform:
+        translate(-50%, -50%)
+        rotate(-280deg);
+    }
+  }
+  
+  @keyframes futureRingThree {
+    from {
+      transform:
+        translate(-50%, -50%)
+        rotate(45deg);
+    }
+  
+    to {
+      transform:
+        translate(-50%, -50%)
+        rotate(405deg);
+    }
+  }
+  
+  /* Tablet */
+  
+  @media (max-width: 1023px) {
+    .future-invitation__card {
+      grid-template-columns: 1fr;
+    }
+  
+    .future-invitation__visual {
+      min-height: 430px;
+    }
+  
+    .future-sphere {
+      width: min(70vw, 440px);
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  /* Mobile */
+  
+  @media (max-width: 767px) {
+    .future-invitation {
+      padding: 60px 0;
+    }
+  
+    .future-invitation .container {
+      width: min(100% - 24px, var(--container-width));
+    }
+  
+    .future-invitation__card {
+      min-height: auto;
+      padding: 28px 20px;
+      border-radius: 25px;
+    }
+  
+    .future-invitation h2 {
+      font-size: clamp(2.7rem, 12vw, 4.2rem);
+    }
+  
+    .future-invitation__actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    .future-invitation__actions a {
+      width: 100%;
+    }
+  
+    .future-invitation__visual {
+      min-height: 340px;
+    }
+  
+    .future-sphere {
+      width: min(90vw, 330px);
+    }
+  
+    .future-sphere__core {
+      width: 90px;
+      height: 90px;
+      border-radius: 25px;
+    }
+  
+    .future-sphere__core span {
+      font-size: 2.3rem;
+    }
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    .future-sphere__ring {
+      animation: none;
+    }
+  
+    .future-invitation__actions a {
+      transition: none;
+    }
+  }

@@ -1,0 +1,19 @@
+.main-layout {
+    position: relative;
+    width: 100%;
+    min-height: 100dvh;
+    overflow-x: clip;
+    background: #050507;
+  }
+  
+  .main-layout__content {
+    position: relative;
+    width: 100%;
+    min-height: 100dvh;
+  }
+  
+  @supports not (overflow: clip) {
+    .main-layout {
+      overflow-x: hidden;
+    }
+  }
