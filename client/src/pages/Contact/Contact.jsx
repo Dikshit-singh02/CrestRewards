@@ -1,11 +1,17 @@
 const Contact = () => {
     return (
-      <main className="container">
-        <h1>Start a Conversation</h1>
-        <p>
-          Tell us about your customer engagement goals and discover how
-          CrestRewards can support your loyalty journey.
-        </p>
+      <main className="internal-page">
+        <div className="internal-page__content">
+          <h1 className="internal-page__title">
+            Start a meaningful conversation.
+          </h1>
+  
+          <p className="internal-page__description">
+            Tell us what you want to build for your customers. We would love to
+            learn about your loyalty vision and explore how CrestRewards can help
+            bring it to life.
+          </p>
+        </div>
       </main>
     );
   };

@@ -1,9 +1,11 @@
+import PromiseIntro from "../../components/sections/PromiseIntro/PromiseIntro";
+
 const Home = () => {
-    return (
-      <main>
-        <h1>CrestRewards</h1>
-      </main>
-    );
-  };
-  
-  export default Home;
+  return (
+    <main className="home-page">
+      <PromiseIntro />
+    </main>
+  );
+};
+
+export default Home;

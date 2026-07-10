@@ -45,6 +45,51 @@
     margin-inline: auto;
   }
   
-  main {
-    padding-top: 140px;
+
+
+  .internal-page {
+    min-height: 100svh;
+    padding-top: 150px;
+    padding-bottom: 80px;
+  }
+  
+  .internal-page__content {
+    width: min(100% - 40px, var(--container-width));
+    margin-inline: auto;
+  }
+  
+  .internal-page__title {
+    font-size: clamp(2.8rem, 7vw, 6.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.055em;
+  }
+  
+  .internal-page__description {
+    max-width: 680px;
+    margin-top: 24px;
+  
+    color: var(--color-text-secondary);
+  
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.7;
+  }
+  
+  @media (max-width: 767px) {
+    .internal-page {
+      padding-top: 115px;
+      padding-bottom: 60px;
+    }
+  
+    .internal-page__content {
+      width: min(100% - 24px, var(--container-width));
+    }
+  
+    .internal-page__title {
+      font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+  
+    .internal-page__description {
+      margin-top: 18px;
+      font-size: 0.95rem;
+    }
   }
