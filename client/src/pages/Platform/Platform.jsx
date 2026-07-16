@@ -15,6 +15,8 @@ import AnalyticsCommandCenter from "../../components/platform/AnalyticsCommandCe
 import AutomationEngine from "../../components/platform/AutomationEngine/AutomationEngine";
 import AIRecommendations from "../../components/platform/AIRecommendations/AIRecommendations";
 import IntegrationHub from "../../components/platform/IntegrationHub/IntegrationHub";
+import EnterpriseSecurity from "../../components/platform/EnterpriseSecurity/EnterpriseSecurity";
+import ScalabilityArchitecture from "../../components/platform/ScalabilityArchitecture/ScalabilityArchitecture";
 
 const Platform = () => {
   return (
@@ -33,6 +35,8 @@ const Platform = () => {
       <AutomationEngine />
       <AIRecommendations />
       <IntegrationHub />
+      <EnterpriseSecurity />
+      <ScalabilityArchitecture />
     </main>
   );
 };
