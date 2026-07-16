@@ -14,6 +14,7 @@ import CustomerJourneyVisualizer from "../../components/platform/CustomerJourney
 import AnalyticsCommandCenter from "../../components/platform/AnalyticsCommandCenter/AnalyticsCommandCenter";
 import AutomationEngine from "../../components/platform/AutomationEngine/AutomationEngine";
 import AIRecommendations from "../../components/platform/AIRecommendations/AIRecommendations";
+import IntegrationHub from "../../components/platform/IntegrationHub/IntegrationHub";
 
 const Platform = () => {
   return (
@@ -31,6 +32,7 @@ const Platform = () => {
       <AnalyticsCommandCenter />
       <AutomationEngine />
       <AIRecommendations />
+      <IntegrationHub />
     </main>
   );
 };
