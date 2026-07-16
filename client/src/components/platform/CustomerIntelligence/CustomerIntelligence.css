@@ -1,0 +1,703 @@
+.customer-intelligence {
+    position: relative;
+    padding:
+      clamp(85px, 10vw, 145px)
+      0;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  
+  .customer-intelligence__background {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  .customer-intelligence__glow {
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    left: -400px;
+    top: 10%;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.08);
+    filter: blur(140px);
+  }
+  
+  .customer-intelligence__line {
+    position: absolute;
+    width: 1px;
+    height: 70%;
+    top: 15%;
+    background:
+      linear-gradient(
+        to bottom,
+        transparent,
+        rgba(139, 92, 246, 0.13),
+        transparent
+      );
+  }
+  
+  .customer-intelligence__line--one {
+    left: 12%;
+  }
+  
+  .customer-intelligence__line--two {
+    right: 9%;
+  }
+  
+  
+  /* HEADING */
+  
+  .customer-intelligence__heading {
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1.1fr)
+      minmax(300px, 0.6fr);
+    align-items: end;
+    gap: clamp(30px, 6vw, 90px);
+  }
+  
+  .customer-intelligence__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 11px;
+    color: #93c5fd;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    border: 1px solid rgba(96, 165, 250, 0.16);
+    border-radius: 999px;
+    background: rgba(37, 99, 235, 0.06);
+  }
+  
+  .customer-intelligence__heading h2 {
+    max-width: 900px;
+    margin-top: 22px;
+    color: #f4f4f5;
+    font-size:
+      clamp(2.8rem, 5.4vw, 6.2rem);
+    line-height: 0.98;
+    letter-spacing: -0.06em;
+  }
+  
+  .customer-intelligence__heading h2 span {
+    color: #777783;
+  }
+  
+  .customer-intelligence__heading > p {
+    max-width: 520px;
+    color: #858590;
+    font-size:
+      clamp(0.95rem, 1.2vw, 1.08rem);
+    line-height: 1.75;
+  }
+  
+  
+  /* EXPERIENCE LAYOUT */
+  
+  .customer-intelligence__experience {
+    display: grid;
+    grid-template-columns:
+      minmax(420px, 0.95fr)
+      minmax(0, 1.05fr);
+    align-items: center;
+    gap: clamp(45px, 8vw, 120px);
+    margin-top:
+      clamp(65px, 9vw, 125px);
+  }
+  
+  
+  /* VISUAL */
+  
+  .customer-intelligence__visual {
+    position: relative;
+    min-height: 620px;
+    display: grid;
+    place-items: center;
+    perspective: 1200px;
+  }
+  
+  .customer-orbit {
+    position: relative;
+    width: min(42vw, 560px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    border-radius: 42px;
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.035),
+        rgba(255, 255, 255, 0.008)
+      );
+    box-shadow:
+      0 40px 100px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.055);
+    overflow: hidden;
+    transform:
+      perspective(1100px)
+      rotateY(5deg)
+      rotateX(2deg);
+    transform-style: preserve-3d;
+  }
+  
+  .customer-orbit::before {
+    content: "";
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    left: 15%;
+    top: 15%;
+    border-radius: 50%;
+    background:
+      radial-gradient(
+        circle,
+        rgba(37, 99, 235, 0.13),
+        rgba(124, 58, 237, 0.06) 45%,
+        transparent 70%
+      );
+    filter: blur(10px);
+  }
+  
+  .customer-orbit__grid {
+    position: absolute;
+    inset: 0;
+    opacity: 0.45;
+    background-image:
+      linear-gradient(
+        rgba(255, 255, 255, 0.025) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.025) 1px,
+        transparent 1px
+      );
+    background-size: 44px 44px;
+    mask-image:
+      radial-gradient(
+        circle at center,
+        black,
+        transparent 75%
+      );
+    -webkit-mask-image:
+      radial-gradient(
+        circle at center,
+        black,
+        transparent 75%
+      );
+  }
+  
+  
+  /* ORBIT RINGS */
+  
+  .customer-orbit__ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .customer-orbit__ring--outer {
+    width: 82%;
+    height: 82%;
+    border:
+      1px dashed rgba(96, 165, 250, 0.15);
+    animation:
+      customerOrbitRotate 50s linear infinite;
+  }
+  
+  .customer-orbit__ring--middle {
+    width: 61%;
+    height: 61%;
+    border:
+      1px solid rgba(168, 85, 247, 0.13);
+  }
+  
+  .customer-orbit__ring--inner {
+    width: 39%;
+    height: 39%;
+    border:
+      1px solid rgba(196, 181, 253, 0.15);
+  }
+  
+  
+  /* PROFILE CORE */
+  
+  .customer-orbit__profile {
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    top: 50%;
+    width: 180px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform:
+      translate(-50%, -50%)
+      translateZ(40px);
+    border:
+      1px solid rgba(147, 197, 253, 0.18);
+    border-radius: 34px;
+    background:
+      linear-gradient(
+        145deg,
+        rgba(37, 99, 235, 0.18),
+        rgba(124, 58, 237, 0.1)
+      );
+    box-shadow:
+      0 30px 70px rgba(0, 0, 0, 0.3),
+      0 0 65px rgba(37, 99, 235, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.11);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+  
+  .customer-orbit__profile-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    color: #bfdbfe;
+    border-radius: 16px;
+    background: rgba(37, 99, 235, 0.13);
+  }
+  
+  .customer-orbit__profile strong {
+    margin-top: 12px;
+    color: #e4e4e7;
+    font-size: 0.76rem;
+  }
+  
+  .customer-orbit__profile > span {
+    margin-top: 4px;
+    color: #71717c;
+    font-size: 0.55rem;
+  }
+  
+  .customer-orbit__profile-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    padding: 6px 8px;
+    color: #858590;
+    font-size: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.16);
+  }
+  
+  .customer-orbit__profile-status span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #60a5fa;
+    box-shadow:
+      0 0 10px rgba(96, 165, 250, 0.8);
+  }
+  
+  
+  /* SIGNAL SOURCES */
+  
+  .customer-orbit__source {
+    position: absolute;
+    z-index: 6;
+    min-width: 105px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 10px;
+    color: #9b9ba6;
+    font-size: 0.58rem;
+    font-weight: 600;
+    border:
+      1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 13px;
+    background:
+      linear-gradient(
+        145deg,
+        rgba(25, 25, 34, 0.96),
+        rgba(10, 10, 15, 0.96)
+      );
+    box-shadow:
+      0 15px 35px rgba(0, 0, 0, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  
+  .customer-orbit__source > span {
+    width: 31px;
+    height: 31px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    color: #93c5fd;
+    border-radius: 9px;
+    background: rgba(37, 99, 235, 0.1);
+  }
+  
+  .customer-orbit__source--purchase {
+    left: 5%;
+    top: 12%;
+  }
+  
+  .customer-orbit__source--digital {
+    right: 4%;
+    top: 18%;
+  }
+  
+  .customer-orbit__source--engagement {
+    right: 5%;
+    bottom: 14%;
+  }
+  
+  .customer-orbit__source--activity {
+    left: 5%;
+    bottom: 17%;
+  }
+  
+  
+  /* INSIGHT TAGS */
+  
+  .customer-orbit__insight {
+    position: absolute;
+    z-index: 7;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 9px;
+    color: #a1a1aa;
+    font-size: 0.52rem;
+    border:
+      1px solid rgba(168, 85, 247, 0.12);
+    border-radius: 999px;
+    background: rgba(13, 13, 20, 0.92);
+  }
+  
+  .customer-orbit__insight svg {
+    color: #a78bfa;
+  }
+  
+  .customer-orbit__insight--one {
+    top: 7%;
+    left: 48%;
+  }
+  
+  .customer-orbit__insight--two {
+    bottom: 6%;
+    left: 39%;
+  }
+  
+  
+  /* PRINCIPLES */
+  
+  .customer-intelligence__principles-intro > span {
+    color: #818cf8;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  
+  .customer-intelligence__principles-intro h3 {
+    max-width: 680px;
+    margin-top: 14px;
+    color: #e4e4e7;
+    font-size:
+      clamp(2rem, 3.4vw, 3.7rem);
+    line-height: 1.05;
+    letter-spacing: -0.05em;
+  }
+  
+  .customer-intelligence__principles-intro p {
+    max-width: 620px;
+    margin-top: 20px;
+    color: #7c7c87;
+    font-size: 0.92rem;
+    line-height: 1.75;
+  }
+  
+  .intelligence-principle-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 32px;
+  }
+  
+  .intelligence-principle {
+    display: grid;
+    grid-template-columns:
+      auto 1fr auto;
+    align-items: center;
+    gap: 15px;
+    min-height: 96px;
+    padding: 17px;
+    border:
+      1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 18px;
+    background:
+      linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.032),
+        rgba(255, 255, 255, 0.008)
+      );
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease,
+      background 0.3s ease;
+  }
+  
+  .intelligence-principle:hover {
+    transform: translateX(5px);
+    border-color:
+      rgba(96, 165, 250, 0.17);
+    background:
+      linear-gradient(
+        135deg,
+        rgba(37, 99, 235, 0.06),
+        rgba(255, 255, 255, 0.01)
+      );
+  }
+  
+  .intelligence-principle__icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    color: #93c5fd;
+    border-radius: 13px;
+    background: rgba(37, 99, 235, 0.09);
+  }
+  
+  .intelligence-principle h4 {
+    color: #d4d4d8;
+    font-size: 0.9rem;
+  }
+  
+  .intelligence-principle p {
+    max-width: 470px;
+    margin-top: 5px;
+    color: #6f6f7a;
+    font-size: 0.68rem;
+    line-height: 1.55;
+  }
+  
+  .intelligence-principle__arrow {
+    color: #52525c;
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
+  }
+  
+  .intelligence-principle:hover
+  .intelligence-principle__arrow {
+    color: #93c5fd;
+    transform: translateX(4px);
+  }
+  
+  
+  /* TABLET */
+  
+  @media (max-width: 1100px) {
+    .customer-intelligence__heading {
+      grid-template-columns: 1fr;
+    }
+  
+    .customer-intelligence__heading > p {
+      max-width: 700px;
+    }
+  
+    .customer-intelligence__experience {
+      grid-template-columns: 1fr;
+    }
+  
+    .customer-intelligence__visual {
+      min-height: 610px;
+    }
+  
+    .customer-orbit {
+      width: min(75vw, 560px);
+    }
+  
+    .customer-intelligence__principles {
+      max-width: 800px;
+    }
+  }
+  
+  
+  /* MOBILE */
+  
+  @media (max-width: 767px) {
+    .customer-intelligence {
+      padding: 75px 0;
+    }
+  
+    .customer-intelligence .container {
+      width:
+        min(
+          100% - 24px,
+          var(--container-width)
+        );
+    }
+  
+    .customer-intelligence__heading h2 {
+      font-size:
+        clamp(2.8rem, 13vw, 4.5rem);
+    }
+  
+    .customer-intelligence__experience {
+      margin-top: 55px;
+    }
+  
+    .customer-intelligence__visual {
+      min-height: 440px;
+    }
+  
+    .customer-orbit {
+      width: min(94vw, 420px);
+      border-radius: 28px;
+    }
+  
+    .customer-orbit__profile {
+      width: 130px;
+      min-height: 130px;
+      border-radius: 26px;
+    }
+  
+    .customer-orbit__profile-icon {
+      width: 42px;
+      height: 42px;
+    }
+  
+    .customer-orbit__profile > span {
+      display: none;
+    }
+  
+    .customer-orbit__profile-status {
+      margin-top: 8px;
+    }
+  
+    .customer-orbit__source {
+      min-width: 0;
+      padding: 7px;
+      font-size: 0;
+    }
+  
+    .customer-orbit__source > span {
+      width: 34px;
+      height: 34px;
+    }
+  
+    .customer-orbit__source--purchase {
+      left: 4%;
+    }
+  
+    .customer-orbit__source--digital {
+      right: 4%;
+    }
+  
+    .customer-orbit__source--engagement {
+      right: 4%;
+    }
+  
+    .customer-orbit__source--activity {
+      left: 4%;
+    }
+  
+    .customer-orbit__insight {
+      font-size: 0.46rem;
+    }
+  
+    .customer-intelligence__principles-intro h3 {
+      font-size:
+        clamp(2rem, 9vw, 3.2rem);
+    }
+  
+    .intelligence-principle {
+      min-height: 90px;
+      padding: 14px;
+    }
+  }
+  
+  
+  /* SMALL MOBILE */
+  
+  @media (max-width: 374px) {
+    .customer-intelligence__visual {
+      min-height: 380px;
+    }
+  
+    .customer-orbit__profile {
+      width: 115px;
+      min-height: 115px;
+    }
+  
+    .customer-orbit__profile strong {
+      font-size: 0.64rem;
+    }
+  
+    .customer-orbit__profile-status {
+      display: none;
+    }
+  
+    .customer-orbit__insight {
+      display: none;
+    }
+  
+    .intelligence-principle {
+      grid-template-columns:
+        auto 1fr;
+    }
+  
+    .intelligence-principle__arrow {
+      display: none;
+    }
+  }
+  
+  
+  /* LARGE SCREENS */
+  
+  @media (min-width: 1600px) {
+    .customer-intelligence__visual {
+      min-height: 680px;
+    }
+  
+    .customer-orbit {
+      width: 590px;
+    }
+  }
+  
+  
+  /* REDUCED MOTION */
+  
+  @media (prefers-reduced-motion: reduce) {
+    .customer-orbit__ring--outer {
+      animation: none;
+    }
+  
+    .intelligence-principle,
+    .intelligence-principle__arrow {
+      transition: none;
+    }
+  }
+  
+  
+  @keyframes customerOrbitRotate {
+    from {
+      transform:
+        translate(-50%, -50%)
+        rotate(0deg);
+    }
+  
+    to {
+      transform:
+        translate(-50%, -50%)
+        rotate(360deg);
+    }
+  }
