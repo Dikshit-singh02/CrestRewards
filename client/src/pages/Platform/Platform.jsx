@@ -11,6 +11,7 @@ import LoyaltyPrograms from "../../components/platform/LoyaltyPrograms/LoyaltyPr
 import RewardsMarketplace from "../../components/platform/RewardsMarketplace/RewardsMarketplace";
 
 import CustomerJourneyVisualizer from "../../components/platform/CustomerJourneyVisualizer/CustomerJourneyVisualizer";
+import AnalyticsCommandCenter from "../../components/platform/AnalyticsCommandCenter/AnalyticsCommandCenter";
 
 const Platform = () => {
   return (
@@ -25,6 +26,7 @@ const Platform = () => {
       <LoyaltyPrograms />
       <RewardsMarketplace />
       <CustomerJourneyVisualizer />
+      <AnalyticsCommandCenter />
     </main>
   );
 };
