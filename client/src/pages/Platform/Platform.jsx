@@ -16,7 +16,7 @@ import EnterpriseSecurity from "../../components/platform/EnterpriseSecurity/Ent
 import ScalabilityArchitecture from "../../components/platform/ScalabilityArchitecture/ScalabilityArchitecture";
 import DeveloperExperience from "../../components/platform/DeveloperExperience/DeveloperExperience";
 import PlatformRoadmap from "../../components/platform/PlatformRoadmap/PlatformRoadmap";
-//import PlatformInvitation from "../../components/platform/PlatformInvitation/PlatformInvitation";
+import PlatformInvitation from "../../components/platform/PlatformInvitation/PlatformInvitation";
 
 const Platform = () => {
   return (
@@ -58,7 +58,7 @@ const Platform = () => {
 
       <PlatformRoadmap />
 
-      {/* <PlatformInvitation /> */}
+      <PlatformInvitation />
 
     </main>
   );
