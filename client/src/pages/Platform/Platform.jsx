@@ -13,6 +13,7 @@ import RewardsMarketplace from "../../components/platform/RewardsMarketplace/Rew
 import CustomerJourneyVisualizer from "../../components/platform/CustomerJourneyVisualizer/CustomerJourneyVisualizer";
 import AnalyticsCommandCenter from "../../components/platform/AnalyticsCommandCenter/AnalyticsCommandCenter";
 import AutomationEngine from "../../components/platform/AutomationEngine/AutomationEngine";
+import AIRecommendations from "../../components/platform/AIRecommendations/AIRecommendations";
 
 const Platform = () => {
   return (
@@ -29,6 +30,7 @@ const Platform = () => {
       <CustomerJourneyVisualizer />
       <AnalyticsCommandCenter />
       <AutomationEngine />
+      <AIRecommendations />
     </main>
   );
 };
