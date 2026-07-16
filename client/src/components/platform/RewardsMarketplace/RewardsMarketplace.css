@@ -1,0 +1,410 @@
+.rewards-marketplace{
+    position:relative;
+    padding:120px 0;
+    overflow:hidden;
+}
+
+.rewards-marketplace::before{
+    content:"";
+    position:absolute;
+    width:700px;
+    height:700px;
+    left:-320px;
+    top:-250px;
+    border-radius:50%;
+    background:rgba(124,58,237,.08);
+    filter:blur(140px);
+    pointer-events:none;
+}
+
+.rewards-marketplace::after{
+    content:"";
+    position:absolute;
+    width:650px;
+    height:650px;
+    right:-250px;
+    bottom:-250px;
+    border-radius:50%;
+    background:rgba(37,99,235,.08);
+    filter:blur(140px);
+    pointer-events:none;
+}
+
+/* ========================= */
+
+.rewards-marketplace__header{
+
+    max-width:850px;
+
+    margin:0 auto 90px;
+
+    text-align:center;
+
+}
+
+.rewards-marketplace__eyebrow{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:rgba(124,58,237,.08);
+
+    border:1px solid rgba(124,58,237,.18);
+
+    color:#c4b5fd;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+    letter-spacing:.08em;
+
+    text-transform:uppercase;
+
+}
+
+.rewards-marketplace__header h2{
+
+    margin-top:24px;
+
+    color:white;
+
+    font-size:clamp(3rem,5vw,5.2rem);
+
+    line-height:1;
+
+    letter-spacing:-.05em;
+
+}
+
+.rewards-marketplace__header h2 span{
+
+    color:#8b5cf6;
+
+}
+
+.rewards-marketplace__header p{
+
+    max-width:720px;
+
+    margin:28px auto 0;
+
+    color:#9ca3af;
+
+    line-height:1.9;
+
+}
+
+/* ========================= */
+
+.rewards-marketplace__grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:28px;
+
+}
+
+/* ========================= */
+
+.reward-market-card{
+
+    position:relative;
+
+    padding:34px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+    145deg,
+    rgba(255,255,255,.05),
+    rgba(255,255,255,.02));
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(22px);
+
+    transition:
+    transform .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+
+}
+
+.reward-market-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    top:-120px;
+
+    right:-120px;
+
+    border-radius:50%;
+
+    background:rgba(124,58,237,.16);
+
+    filter:blur(70px);
+
+    transition:.4s;
+
+}
+
+.reward-market-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:rgba(124,58,237,.35);
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.35);
+
+}
+
+.reward-market-card:hover::before{
+
+    transform:scale(1.25);
+
+}
+
+.reward-market-card__top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:28px;
+
+}
+
+.reward-market-card__icon{
+
+    width:72px;
+
+    height:72px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:22px;
+
+    background:
+    linear-gradient(
+    145deg,
+    #7c3aed,
+    #2563eb);
+
+    color:white;
+
+    box-shadow:
+    0 20px 40px rgba(124,58,237,.35);
+
+}
+
+.reward-market-card__tag{
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    background:rgba(124,58,237,.12);
+
+    color:#c4b5fd;
+
+    font-size:.75rem;
+
+    font-weight:600;
+
+}
+
+.reward-market-card h3{
+
+    color:white;
+
+    font-size:1.3rem;
+
+    margin-bottom:18px;
+
+}
+
+.reward-market-card p{
+
+    color:#9ca3af;
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+.reward-market-card__button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    background:none;
+
+    border:none;
+
+    color:#c4b5fd;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    padding:0;
+
+}
+
+.reward-market-card__button:hover{
+
+    color:white;
+
+}
+
+.reward-market-card__button svg{
+
+    transition:.3s;
+
+}
+
+.reward-market-card__button:hover svg{
+
+    transform:translateX(6px);
+
+}
+
+/* ========================= */
+
+@media(max-width:1200px){
+
+.rewards-marketplace__grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/* ========================= */
+
+@media(max-width:768px){
+
+.rewards-marketplace{
+
+padding:80px 0;
+
+}
+
+.rewards-marketplace__header{
+
+margin-bottom:60px;
+
+}
+
+.rewards-marketplace__grid{
+
+grid-template-columns:1fr;
+
+}
+
+.reward-market-card{
+
+padding:28px;
+
+}
+
+.reward-market-card__icon{
+
+width:60px;
+
+height:60px;
+
+border-radius:18px;
+
+}
+
+}
+
+/* ========================= */
+
+@media(max-width:420px){
+
+.reward-market-card{
+
+padding:22px;
+
+}
+
+.reward-market-card h3{
+
+font-size:1.15rem;
+
+}
+
+.rewards-marketplace__header h2{
+
+font-size:2.3rem;
+
+}
+
+.reward-market-card__top{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:16px;
+
+}
+
+}
+
+/* ========================= */
+
+@media(min-width:1600px){
+
+.rewards-marketplace{
+
+padding:150px 0;
+
+}
+
+.rewards-marketplace__grid{
+
+gap:36px;
+
+}
+
+.reward-market-card{
+
+padding:42px;
+
+}
+
+}

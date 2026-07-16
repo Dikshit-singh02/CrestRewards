@@ -7,6 +7,9 @@ import IntelligenceEngine from "../../components/platform/IntelligenceEngine/Int
 import EngagementStudio from "../../components/platform/EngagementStudio/EngagementStudio";
 
 import LoyaltyPrograms from "../../components/platform/LoyaltyPrograms/LoyaltyPrograms";
+
+import RewardsMarketplace from "../../components/platform/RewardsMarketplace/RewardsMarketplace";
+
 const Platform = () => {
   return (
     <main className="platform-page">
@@ -18,6 +21,7 @@ const Platform = () => {
       <IntelligenceEngine />
       <EngagementStudio />
       <LoyaltyPrograms />
+      <RewardsMarketplace />
     </main>
   );
 };
