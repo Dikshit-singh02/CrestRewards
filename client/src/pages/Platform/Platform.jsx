@@ -12,6 +12,7 @@ import RewardsMarketplace from "../../components/platform/RewardsMarketplace/Rew
 
 import CustomerJourneyVisualizer from "../../components/platform/CustomerJourneyVisualizer/CustomerJourneyVisualizer";
 import AnalyticsCommandCenter from "../../components/platform/AnalyticsCommandCenter/AnalyticsCommandCenter";
+import AutomationEngine from "../../components/platform/AutomationEngine/AutomationEngine";
 
 const Platform = () => {
   return (
@@ -27,6 +28,7 @@ const Platform = () => {
       <RewardsMarketplace />
       <CustomerJourneyVisualizer />
       <AnalyticsCommandCenter />
+      <AutomationEngine />
     </main>
   );
 };
