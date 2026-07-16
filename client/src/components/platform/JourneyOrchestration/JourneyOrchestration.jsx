@@ -1,131 +1,222 @@
 import { motion } from "framer-motion";
 import {
-  Search,
+  Activity,
+  ArrowUpRight,
   BrainCircuit,
-  Sparkles,
   Gift,
-  HeartHandshake,
+  Sparkles,
+  Users,
 } from "lucide-react";
 
 import "./JourneyOrchestration.css";
 
-const journeySteps = [
+const metrics = [
   {
-    id: "01",
-    title: "Discover",
-    description:
-      "Capture meaningful customer interactions across every touchpoint.",
-    icon: Search,
-  },
-  {
-    id: "02",
-    title: "Understand",
-    description:
-      "Connect customer behavior into a unified relationship profile.",
+    value: "92%",
+    label: "Customer Context",
     icon: BrainCircuit,
   },
   {
-    id: "03",
-    title: "Engage",
-    description:
-      "Deliver relevant experiences based on evolving customer context.",
-    icon: Sparkles,
+    value: "84%",
+    label: "Engagement",
+    icon: Activity,
   },
   {
-    id: "04",
-    title: "Reward",
-    description:
-      "Recognize loyalty with flexible and meaningful reward experiences.",
+    value: "120K",
+    label: "Reward Events",
     icon: Gift,
-  },
-  {
-    id: "05",
-    title: "Grow",
-    description:
-      "Build lasting relationships through continuous engagement.",
-    icon: HeartHandshake,
   },
 ];
 
 const JourneyOrchestration = () => {
   return (
-    <section className="journey">
+    <section className="journey-engine">
+
       <div className="container">
 
-        <motion.div
-          className="journey__heading"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <span className="journey__eyebrow">
-            Customer Journey
-          </span>
+        <div className="journey-engine__wrapper">
 
-          <h2>
-            Every relationship
-            <span> evolves step by step.</span>
-          </h2>
+          <motion.div
+            className="journey-engine__content"
+            initial={{
+              opacity: 0,
+              x: -40,
+            }}
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+            viewport={{
+              once: true,
+            }}
+            transition={{
+              duration: 0.8,
+            }}
+          >
 
-          <p>
-            CrestRewards is being designed to help brands understand,
-            engage, reward and grow customer relationships through one
-            connected journey.
-          </p>
-        </motion.div>
+            <span className="journey-engine__eyebrow">
 
-        <div className="journey__timeline">
+              <Sparkles size={15} />
 
-          {journeySteps.map((step, index) => {
+              Journey Orchestration
 
-            const Icon = step.icon;
+            </span>
 
-            return (
+            <h2>
 
-              <motion.div
-                className="journey-card"
-                key={step.id}
-                initial={{
-                  opacity: 0,
-                  y: 50,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{
-                  once: true,
-                }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.12,
-                }}
-              >
+              Every interaction builds
+              <span> a stronger relationship.</span>
 
-                <div className="journey-card__number">
-                  {step.id}
-                </div>
+            </h2>
 
-                <div className="journey-card__icon">
-                  <Icon size={24} />
-                </div>
+            <p>
 
-                <div className="journey-card__content">
-                  <h3>{step.title}</h3>
+              CrestRewards is being designed to connect
+              customer understanding,
+              personalized engagement,
+              and meaningful rewards
+              inside one intelligent journey engine.
 
-                  <p>{step.description}</p>
-                </div>
+            </p>
 
-              </motion.div>
+            <div className="journey-engine__features">
 
-            );
+              <div>
 
-          })}
+                <Users size={20} />
+
+                Connected Customer View
+
+              </div>
+
+              <div>
+
+                <BrainCircuit size={20} />
+
+                Intelligent Decisions
+
+              </div>
+
+              <div>
+
+                <Gift size={20} />
+
+                Reward Experiences
+
+              </div>
+
+            </div>
+
+          </motion.div>
+
+          <motion.div
+
+            className="journey-dashboard"
+
+            initial={{
+              opacity: 0,
+              x: 40,
+            }}
+
+            whileInView={{
+              opacity: 1,
+              x: 0,
+            }}
+
+            viewport={{
+              once: true,
+            }}
+
+            transition={{
+              duration: 0.8,
+            }}
+
+          >
+
+            <div className="journey-dashboard__header">
+
+              <span>
+
+                Customer Journey
+
+              </span>
+
+              <ArrowUpRight size={18} />
+
+            </div>
+
+            <div className="journey-dashboard__score">
+
+              <h3>
+
+                Loyalty Score
+
+              </h3>
+
+              <strong>
+
+                84%
+
+              </strong>
+
+            </div>
+
+            <div className="journey-dashboard__graph">
+
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+              <span />
+
+            </div>
+
+            <div className="journey-dashboard__metrics">
+
+              {metrics.map((metric) => {
+
+                const Icon = metric.icon;
+
+                return (
+
+                  <div
+                    className="metric-card"
+                    key={metric.label}
+                  >
+
+                    <Icon size={18} />
+
+                    <div>
+
+                      <strong>
+
+                        {metric.value}
+
+                      </strong>
+
+                      <span>
+
+                        {metric.label}
+
+                      </span>
+
+                    </div>
+
+                  </div>
+
+                );
+
+              })}
+
+            </div>
+
+          </motion.div>
 
         </div>
 
       </div>
+
     </section>
   );
 };
