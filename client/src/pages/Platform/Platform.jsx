@@ -5,6 +5,8 @@ import RewardArchitecture from "../../components/platform/RewardArchitecture/Rew
 import PlatformFoundation from "../../components/platform/PlatformFoundation/PlatformFoundation";
 import IntelligenceEngine from "../../components/platform/IntelligenceEngine/IntelligenceEngine";
 import EngagementStudio from "../../components/platform/EngagementStudio/EngagementStudio";
+
+import LoyaltyPrograms from "../../components/platform/LoyaltyPrograms/LoyaltyPrograms";
 const Platform = () => {
   return (
     <main className="platform-page">
@@ -15,6 +17,7 @@ const Platform = () => {
       <PlatformFoundation />
       <IntelligenceEngine />
       <EngagementStudio />
+      <LoyaltyPrograms />
     </main>
   );
 };
