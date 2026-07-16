@@ -1,0 +1,398 @@
+.customer-journey{
+    position:relative;
+    padding:120px 0;
+    overflow:hidden;
+}
+
+.customer-journey::before{
+    content:"";
+    position:absolute;
+    width:750px;
+    height:750px;
+    left:-350px;
+    top:-250px;
+    border-radius:50%;
+    background:rgba(124,58,237,.08);
+    filter:blur(140px);
+    pointer-events:none;
+}
+
+.customer-journey::after{
+    content:"";
+    position:absolute;
+    width:650px;
+    height:650px;
+    right:-250px;
+    bottom:-250px;
+    border-radius:50%;
+    background:rgba(37,99,235,.08);
+    filter:blur(140px);
+    pointer-events:none;
+}
+
+/* ========================= */
+
+.customer-journey__header{
+
+    max-width:850px;
+
+    margin:0 auto 90px;
+
+    text-align:center;
+
+}
+
+.customer-journey__eyebrow{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:8px 18px;
+
+    border-radius:999px;
+
+    background:rgba(124,58,237,.08);
+
+    border:1px solid rgba(124,58,237,.18);
+
+    color:#c4b5fd;
+
+    font-size:.75rem;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.08em;
+
+}
+
+.customer-journey__header h2{
+
+    margin-top:24px;
+
+    color:white;
+
+    font-size:clamp(3rem,5vw,5.2rem);
+
+    line-height:1;
+
+    letter-spacing:-.05em;
+
+}
+
+.customer-journey__header h2 span{
+
+    color:#8b5cf6;
+
+}
+
+.customer-journey__header p{
+
+    max-width:720px;
+
+    margin:28px auto 0;
+
+    color:#9ca3af;
+
+    line-height:1.9;
+
+}
+
+/* ========================= */
+
+.journey-timeline{
+
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:26px;
+
+}
+
+.journey-timeline::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:40px;
+
+    left:8%;
+
+    right:8%;
+
+    height:2px;
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #7c3aed,
+    #2563eb);
+
+    opacity:.4;
+
+}
+
+.journey-step{
+
+    position:relative;
+
+    padding:34px 26px;
+
+    border-radius:28px;
+
+    background:
+    linear-gradient(
+    145deg,
+    rgba(255,255,255,.05),
+    rgba(255,255,255,.02));
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    text-align:center;
+
+    transition:.35s;
+
+    overflow:hidden;
+
+}
+
+.journey-step::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    top:-120px;
+
+    right:-120px;
+
+    border-radius:50%;
+
+    background:rgba(124,58,237,.16);
+
+    filter:blur(70px);
+
+    transition:.4s;
+
+}
+
+.journey-step:hover{
+
+    transform:translateY(-10px);
+
+    border-color:rgba(124,58,237,.35);
+
+    box-shadow:
+
+    0 25px 60px rgba(0,0,0,.35);
+
+}
+
+.journey-step:hover::before{
+
+    transform:scale(1.25);
+
+}
+
+.journey-step__icon{
+
+    width:78px;
+
+    height:78px;
+
+    margin:0 auto 24px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+
+    background:
+
+    linear-gradient(
+    145deg,
+    #7c3aed,
+    #2563eb);
+
+    color:white;
+
+    box-shadow:
+
+    0 18px 45px rgba(124,58,237,.4);
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.journey-step h3{
+
+    color:white;
+
+    font-size:1.2rem;
+
+    margin-bottom:16px;
+
+}
+
+.journey-step p{
+
+    color:#9ca3af;
+
+    line-height:1.8;
+
+    font-size:.95rem;
+
+}
+
+.journey-step__line{
+
+    position:absolute;
+
+    width:36px;
+
+    height:2px;
+
+    top:40px;
+
+    right:-36px;
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #7c3aed,
+    #2563eb);
+
+    z-index:5;
+
+}
+
+/* ========================= */
+
+@media(max-width:1200px){
+
+.journey-timeline{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.journey-timeline::before{
+
+display:none;
+
+}
+
+.journey-step__line{
+
+display:none;
+
+}
+
+}
+
+/* ========================= */
+
+@media(max-width:768px){
+
+.customer-journey{
+
+padding:80px 0;
+
+}
+
+.customer-journey__header{
+
+margin-bottom:60px;
+
+}
+
+.journey-timeline{
+
+grid-template-columns:1fr;
+
+gap:22px;
+
+}
+
+.journey-step{
+
+padding:28px;
+
+}
+
+.journey-step__icon{
+
+width:64px;
+
+height:64px;
+
+}
+
+}
+
+/* ========================= */
+
+@media(max-width:420px){
+
+.customer-journey__header h2{
+
+font-size:2.3rem;
+
+}
+
+.journey-step{
+
+padding:22px;
+
+}
+
+.journey-step h3{
+
+font-size:1.1rem;
+
+}
+
+}
+
+/* ========================= */
+
+@media(min-width:1600px){
+
+.customer-journey{
+
+padding:150px 0;
+
+}
+
+.journey-timeline{
+
+gap:36px;
+
+}
+
+.journey-step{
+
+padding:42px 32px;
+
+}
+
+}

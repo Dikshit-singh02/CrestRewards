@@ -10,6 +10,8 @@ import LoyaltyPrograms from "../../components/platform/LoyaltyPrograms/LoyaltyPr
 
 import RewardsMarketplace from "../../components/platform/RewardsMarketplace/RewardsMarketplace";
 
+import CustomerJourneyVisualizer from "../../components/platform/CustomerJourneyVisualizer/CustomerJourneyVisualizer";
+
 const Platform = () => {
   return (
     <main className="platform-page">
@@ -22,6 +24,7 @@ const Platform = () => {
       <EngagementStudio />
       <LoyaltyPrograms />
       <RewardsMarketplace />
+      <CustomerJourneyVisualizer />
     </main>
   );
 };
