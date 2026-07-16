@@ -3,6 +3,7 @@ import CustomerIntelligence from "../../components/platform/CustomerIntelligence
 import JourneyOrchestration from "../../components/platform/JourneyOrchestration/JourneyOrchestration";
 import RewardArchitecture from "../../components/platform/RewardArchitecture/RewardArchitecture";
 import PlatformFoundation from "../../components/platform/PlatformFoundation/PlatformFoundation";
+import IntelligenceEngine from "../../components/platform/IntelligenceEngine/IntelligenceEngine";
 
 const Platform = () => {
   return (
@@ -12,6 +13,7 @@ const Platform = () => {
       <JourneyOrchestration />
       <RewardArchitecture />
       <PlatformFoundation />
+      <IntelligenceEngine />
     </main>
   );
 };
