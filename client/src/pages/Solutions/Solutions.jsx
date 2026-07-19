@@ -1,18 +1,23 @@
+import SolutionsHero from "../../components/solutions/SolutionsHero/SolutionsHero";
+import SolutionCategories from "../../components/solutions/SolutionCategories/SolutionCategories";
+import HowItWorks from "../../components/solutions/HowItWorks/HowItWorks";
+import WhyChooseSolutions from "../../components/solutions/WhyChooseSolutions/WhyChooseSolutions";
+import SolutionsCTA from "../../components/solutions/SolutionsCTA/SolutionsCTA";
+
 const Solutions = () => {
-    return (
-      <main className="internal-page">
-        <div className="internal-page__content">
-          <h1 className="internal-page__title">
-            Loyalty experiences built around people.
-          </h1>
-  
-          <p className="internal-page__description">
-            Create personalized journeys, meaningful rewards, membership
-            experiences, customer milestones, and smarter engagement strategies.
-          </p>
-        </div>
-      </main>
-    );
-  };
-  
-  export default Solutions;
+  return (
+    <main className="solutions-page">
+      <SolutionsHero />
+
+      <SolutionCategories />
+
+      <HowItWorks />
+
+      <WhyChooseSolutions />
+
+      <SolutionsCTA />
+    </main>
+  );
+};
+
+export default Solutions;
